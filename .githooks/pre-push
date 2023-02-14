@@ -15,4 +15,5 @@ if [ $? -ne 0 ]; then
   exit 1
 fi
 
-git commit -amend
+git add .
+git commit --amend --no-edit
