@@ -1,17 +1,23 @@
 #!/bin/sh
 
-flutter analyze
+flutter analyze .
 if [ $? -ne 0 ]; then
+  git reset --soft HEAD~
+  git pull
   exit 1
 fi
 
 dart format .
 if [ $? -ne 0 ]; then
+  git reset --soft HEAD~
+  git pull
   exit 1
 fi
 
 dart fix --apply
 if [ $? -ne 0 ]; then
+  git reset --soft HEAD~
+  git pull
   exit 1
 fi
 
