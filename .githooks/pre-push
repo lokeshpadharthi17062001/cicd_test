@@ -1,0 +1,16 @@
+#!/bin/sh
+
+flutter analyze
+if [ $? -ne 0 ]; then
+  exit 1
+fi
+
+flutter format --fix
+if [ $? -ne 0 ]; then
+  exit 1
+fi
+
+dart fix --apply
+if [ $? -ne 0 ]; then
+  exit 1
+fi
