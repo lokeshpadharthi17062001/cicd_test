@@ -14,3 +14,5 @@ dart fix --apply
 if [ $? -ne 0 ]; then
   exit 1
 fi
+
+git commit -ammend
