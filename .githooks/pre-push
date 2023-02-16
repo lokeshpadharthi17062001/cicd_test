@@ -2,25 +2,10 @@
 
 flutter analyze .
 if [ $? -ne 0 ]; then
-  git reset --soft HEAD~
-  git pull
   exit 1
 fi
 
-dart format .
+flutter format --set-exit-if-changed .
 if [ $? -ne 0 ]; then
-  git reset --soft HEAD~
-  git pull
   exit 1
 fi
-
-dart fix --apply
-if [ $? -ne 0 ]; then
-  git reset --soft HEAD~
-  git pull
-  exit 1
-fi
-
-git pull
-git add .
-git commit --amend --no-edit
