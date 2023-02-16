@@ -15,7 +15,7 @@ if [ $? -ne 0 ]; then
   exit 1
 fi
 
-flutter fix --dry-run | grep 'Nothing to fix!'
+dart fix --dry-run | grep 'Nothing to fix!'
 if [ $? -ne 0 ]; then
   exit 1
 fi
